@@ -1,74 +1,26 @@
-# Task Management App
+# Task Manager App
 
-Este é um aplicativo de gerenciamento de tarefas desenvolvido com Laravel (backend) e Nuxt.js (frontend).
+Interface web de estudo para gerenciamento de tarefas. Usa Nuxt 3, Vue.js, Pinia e Axios para consumir a [Task Manager API em Laravel](https://github.com/GabrielLucasF/task-manager-api).
 
-## Funcionalidades
+## O que explorar
 
-- Autenticação de usuário (login, registro, logout).
-- CRUD de tarefas (criar, editar, excluir, marcar como concluída).
-- Atribuição de tarefas a usuários.
-- Interface responsiva para desktop e dispositivos móveis.
+- Cadastro e login pela interface.
+- Listagem, criação, edição e remoção de tarefas.
+- Integração das ações de interface com a API REST.
+- Estado da autenticação e das tarefas nos [stores Pinia](stores/).
 
-## Tecnologias Utilizadas
+## Executar localmente
 
-- **Backend**: Laravel 11, JWT para autenticação.
-- **Frontend**: Nuxt.js v3, Vue.js, Pinia para gerenciamento de estado.
-- **Banco de Dados**: MySQL.
-- **API**: Comunicação RESTful com endpoints para tarefas e usuários.
+1. Em um clone separado, siga a [instalação do backend](https://github.com/GabrielLucasF/task-manager-api#executar-localmente) e inicie a API em http://127.0.0.1:8000.
+2. Neste repositório, execute:
 
-## Instalação
+```sh
+npm ci
+npm run dev
+```
 
-1. Clone o repositório
-2. Instale as dependências do backend e frontend:
-- Backend (Laravel):
-  ```
-  cd backend
-  composer install
-  cp .env.example .env
-  php artisan key:generate
-  php artisan migrate
-  ```
-- Frontend (Nuxt.js):
-  ```
-  cd frontend
-  npm install
-  ```
+3. Abra o endereço informado pelo Nuxt. O app usa http://127.0.0.1:8000/api como base. Para usar outro endereço, configure NUXT_PUBLIC_API_BASE no ambiente.
 
-3. Configure as variáveis de ambiente:
-- Backend (`.env`):
-  ```
-  DB_CONNECTION=mysql
-  DB_HOST=127.0.0.1
-  DB_PORT=3306
-  DB_DATABASE=nome_do_banco
-  DB_USERNAME=seu_usuario
-  DB_PASSWORD=sua_senha
-  ```
-- Frontend (`frontend/nuxt.config.ts`):
-  ```
-  export default {
-    public: {
-      apiBase: 'http://localhost:8000/api' // URL da API Laravel
-    }
-  }
-  ```
+## Roteiro de demonstração
 
-4. Inicie os servidores:
-- Backend (Laravel):
-  ```
-  php artisan serve --port=8000
-  ```
-- Frontend (Nuxt.js):
-  ```
-  npm run dev
-  ```
-
-5. Acesse o aplicativo em `http://localhost:3000` no navegador.
-
-## Contribuição
-
-Sinta-se à vontade para contribuir com melhorias através de pull requests. Para problemas ou sugestões, abra uma issue.
-
-## Licença
-
-Este projeto está licenciado sob a [MIT License](https://opensource.org/licenses/MIT).
+Entre com uma conta de teste, crie uma tarefa atribuída a ela, edite o título e confira o estado após recarregar a página. Para acompanhar o caminho no código, comece em [pages](pages/), passe pelos [stores](stores/) e siga para o endpoint correspondente no backend. Use dados fictícios no ambiente local.
